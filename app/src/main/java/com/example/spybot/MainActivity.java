@@ -6,6 +6,7 @@ import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.MenuItem;
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     private Field lastSelected = null;
 
     private Resources r = null;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,8 +83,6 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         LinearLayout infoBox = new LinearLayout(this); //info box
         infoBox.setOrientation(LinearLayout.VERTICAL);
         gameLayout.addView(infoBox);
-
-
 
 
         for (short y = 0; y < height; y++) {
@@ -494,6 +494,10 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
             Pawn actor;
             Pawn target;
 
+            MediaPlayer sound_move;
+            sound_move = MediaPlayer.create(this, R.raw.move1);
+
+
             // Actions when clicking a highlighted field
             switch (field.getHighlighting()) {
                 case Empty:
@@ -504,22 +508,27 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                 case MovableUp:
                     actor = lastSelected.getSegment().getPawn();
                     actor.move(lastSelected, field, Direction.UP);
+                    sound_move.start();
                     break;
                 case MovableDown:
                     actor = lastSelected.getSegment().getPawn();
                     actor.move(lastSelected, field, Direction.DOWN);
+                    sound_move.start();
                     break;
                 case MovableLeft:
                     actor = lastSelected.getSegment().getPawn();
                     actor.move(lastSelected, field, Direction.LEFT);
+                    sound_move.start();
                     break;
                 case MovableRight:
                     actor = lastSelected.getSegment().getPawn();
                     actor.move(lastSelected, field, Direction.RIGHT);
+                    sound_move.start();
                     break;
                 case Movable:
                     actor = lastSelected.getSegment().getPawn();
                     actor.move(lastSelected, field, Direction.NONE);
+                    sound_move.start();
                     break;
                 case Healable:
                     //TODO
@@ -545,9 +554,11 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                 case SpawnableP1:
                     if(board.currentPlayer != 0) break;
                     ShowSpawnableList(findViewById(field.getId()));
+                    break;
                 case SpawnableP2:
                     if(board.currentPlayer != 1) break;
                     ShowSpawnableList(findViewById(field.getId()));
+                    break;
                 default:
 
             }
@@ -728,6 +739,11 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         } else {
             throw new NoSuchElementException("Error, selected pawn not implemented");
         }
+
+        MediaPlayer sound_spawn;
+        sound_spawn = MediaPlayer.create(this, R.raw.spawn2);
+        sound_spawn.setVolume(1,1);
+        sound_spawn.start();
 
         field.setHighlighting(Highlighting.Empty);
 

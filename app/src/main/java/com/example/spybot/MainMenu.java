@@ -1,6 +1,7 @@
 package com.example.spybot;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,6 +13,8 @@ import com.utilities.SavegameUtil;
 
 public class MainMenu extends AppCompatActivity implements View.OnClickListener{
 
+    private MediaPlayer music;
+    private MediaPlayer winxp;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +29,13 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener{
         quit.setOnClickListener(this);
         Button settings = findViewById(R.id.btnSettings);
         settings.setOnClickListener(this);
+
+        music = MediaPlayer.create(this, R.raw.sound_background);
+        music.setLooping(true);
+        music.start();
+
+        winxp = MediaPlayer.create(this, R.raw.winxp);
+        winxp.start();
 
 
     }
