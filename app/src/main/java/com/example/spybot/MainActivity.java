@@ -183,7 +183,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                     setHighlightingAttack(lastSelected, (byte) 1, lastSelected.getSegment().getPawn().getAttack1().getRange());
                     break;
                 case ActionID.ATTACK_2:
-                    setHighlightingAttack(lastSelected, (byte) 2, lastSelected.getSegment().getPawn().getAttack1().getRange());
+                    setHighlightingAttack(lastSelected, (byte) 2, lastSelected.getSegment().getPawn().getAttack2().getRange());
                     break;
                 default:
             }
@@ -527,7 +527,6 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                 case Attackable1:
                     actor = lastSelected.getSegment().getPawn();
                     if(field.getSegment() != null && actor.getAttack1().canAttack()) {
-                        target = field.getSegment().getPawn();
                         actor.attack1(field);
                         actor.getAttack1().SetAttackFlag(false);
 
@@ -536,7 +535,6 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                 case Attackable2:
                     actor = lastSelected.getSegment().getPawn();
                     if(field.getSegment() != null && actor.getAttack2().canAttack()) {
-                        target = field.getSegment().getPawn();
                         actor.attack2(field);
                         actor.getAttack2().SetAttackFlag(false);
                     }
