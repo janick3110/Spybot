@@ -6,12 +6,12 @@ import com.pawns.Pawn;
 public abstract class Attack {
 
     protected String nameOfAttack;
-    protected int resource;
+    protected int resource = 0;
     protected byte range;
     protected byte magnitude;
     protected boolean canAttack;
 
-    public Attack(String attackName,int icon,  byte range, byte magnitude) {
+    public Attack(String attackName, int icon, byte range, byte magnitude) {
         this.nameOfAttack = attackName;
         this.resource = icon;
         this.range = range;

@@ -19,7 +19,7 @@ public class Compilerbau extends Pawn{
         this.pictureTailLeft = R.drawable.com_left;
         this.pictureTailRight = R.drawable.com_right;
 
-        this.attack1 = new AttackBuild("Trivial",0,(byte)1,(byte)1);
-        this.attack2 = new AttackBuild("Titanic",0,(byte)1,(byte)-1);
+        this.attack1 = new AttackBuild("Trivial", R.drawable.highlighting_attack,(byte)1,(byte)1);
+        this.attack2 = new AttackBuild("Titanic", R.drawable.highlighting_attack,(byte)1,(byte)-1);
     }
 }

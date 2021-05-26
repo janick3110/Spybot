@@ -528,7 +528,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                     actor = lastSelected.getSegment().getPawn();
                     if(field.getSegment() != null && actor.getAttack1().canAttack()) {
                         target = field.getSegment().getPawn();
-                        actor.attack1(lastSelected);
+                        actor.attack1(field);
                         actor.getAttack1().SetAttackFlag(false);
 
                     }
@@ -537,7 +537,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                     actor = lastSelected.getSegment().getPawn();
                     if(field.getSegment() != null && actor.getAttack2().canAttack()) {
                         target = field.getSegment().getPawn();
-                        actor.attack2(lastSelected);
+                        actor.attack2(field);
                         actor.getAttack2().SetAttackFlag(false);
                     }
                     break;
