@@ -1,0 +1,2 @@
+# Spybot
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/c2c20cd043db488f886e9389036716be)](https://app.codacy.com/gh/janick3110/Spybot?utm_source=github.com&utm_medium=referral&utm_content=janick3110/Spybot&utm_campaign=Badge_Grade_Settings)
