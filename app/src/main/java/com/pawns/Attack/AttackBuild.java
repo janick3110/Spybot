@@ -1,5 +1,6 @@
 package com.pawns.Attack;
 
+import com.example.spybot.MainActivity;
 import com.level.Field;
 
 
@@ -10,7 +11,7 @@ public class AttackBuild extends Attack{
     }
 
     @Override
-    public void performAttack(Field target) {
+    public void performAttack(MainActivity m, Field target) {
         if (magnitude > 0 && !target.getStatus()){
             //Build
             target.setStatus(true);

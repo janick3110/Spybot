@@ -1,5 +1,6 @@
 package com.pawns.Attack;
 
+import com.example.spybot.MainActivity;
 import com.level.Field;
 import com.pawns.Pawn;
 
@@ -10,7 +11,7 @@ public class AttackSize extends Attack {
     }
 
     @Override
-    public void performAttack(Field target) {
+    public void performAttack(MainActivity m, Field target) {
         target.getSegment().getPawn().setMaxSize((byte) (target.getSegment().getPawn().getMaxSize() + magnitude));
     }
 }

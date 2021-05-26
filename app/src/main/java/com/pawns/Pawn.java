@@ -1,5 +1,6 @@
 package com.pawns;
 
+import com.example.spybot.MainActivity;
 import com.example.spybot.R;
 import com.level.Board;
 import com.level.Field;
@@ -87,12 +88,12 @@ public abstract class Pawn {
         }
     }
 
-    public void attack1(Field target) {
-        this.attack1.performAttack(target);
+    public void attack1(MainActivity m, Field target) {
+        this.attack1.performAttack(m, target);
     }
 
-    public void attack2(Field target) {
-        this.attack2.performAttack(target);
+    public void attack2(MainActivity m, Field target) {
+        this.attack2.performAttack(m, target);
     }
 
 // ----- Getter & Setter -----

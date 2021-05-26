@@ -1,5 +1,6 @@
 package com.pawns.Attack;
 
+import com.example.spybot.MainActivity;
 import com.level.Field;
 import com.pawns.Pawn;
 import com.pawns.PawnSegment;
@@ -14,18 +15,29 @@ public class AttackHeal extends Attack{
     }
 
     @Override
-    public void performAttack(Field target) {
+    public void performAttack(MainActivity m, Field target) {
+
+        Pawn targetPawn = target.getSegment().getPawn();
 
         if(magnitude < 0) {
             for(int i = 0; i < abs(magnitude); i++) {
-                if(target.getSegment().getPawn().getSegments().size() > 1){
-                    PawnSegment segment = target.getSegment().getPawn().getSegments().get(1);
+                if(targetPawn.getSegments().size() > 1){
+                    PawnSegment segment = targetPawn.getSegments().get(1);
                     Field segField = segment.getField();
                     segField.setSegment(null);
-                    target.getSegment().getPawn().getSegments().remove(1);
+                    targetPawn.getSegments().remove(1);
+                    m.refreshBoard();
+
+
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+
                 }
                 else {
-                    target.getSegment().getPawn().die();
+                    targetPawn.die();
                     continue;
                 }
 

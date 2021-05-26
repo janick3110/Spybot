@@ -350,6 +350,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         }
     }
 
+
     private void ResetAttributes(){
         for (Pawn pawn: board.pawnsOnBoard) {
             pawn.setLeftSteps(pawn.getSpeed());
@@ -371,7 +372,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     /**
      * Function iterates over field and refreshes every button representation
      */
-    void refreshBoard() {
+    public void refreshBoard() {
         for (short y = 0; y < height; y++) {
             for (short x = 0; x < width; x++) {
 
@@ -535,7 +536,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                 case Attackable1:
                     actor = lastSelected.getSegment().getPawn();
                     if(field.getSegment() != null && actor.getAttack1().canAttack()) {
-                        actor.attack1(field);
+                        actor.attack1(this, field);
                         actor.getAttack1().SetAttackFlag(false);
 
                     }
@@ -543,7 +544,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                 case Attackable2:
                     actor = lastSelected.getSegment().getPawn();
                     if(field.getSegment() != null && actor.getAttack2().canAttack()) {
-                        actor.attack2(field);
+                        actor.attack2(this, field);
                         actor.getAttack2().SetAttackFlag(false);
                     }
                     break;

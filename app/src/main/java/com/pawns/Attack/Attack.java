@@ -1,5 +1,6 @@
 package com.pawns.Attack;
 
+import com.example.spybot.MainActivity;
 import com.level.Field;
 import com.pawns.Pawn;
 
@@ -18,15 +19,15 @@ public abstract class Attack {
         this.magnitude = magnitude;
     }
 
-    public abstract void performAttack(Field target);
+    public abstract void performAttack(MainActivity m, Field target);
 
 
     public boolean canAttack() {
         return canAttack;
     }
 
-    public void SetAttackFlag(boolean hasBeenUsed) {
-        this.canAttack = hasBeenUsed;
+    public void SetAttackFlag(boolean canAttack) {
+        this.canAttack = canAttack;
     }
 
     public byte getRange() {

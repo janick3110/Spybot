@@ -1,5 +1,6 @@
 package com.pawns.Attack;
 
+import com.example.spybot.MainActivity;
 import com.level.Field;
 import com.pawns.Pawn;
 
@@ -10,7 +11,9 @@ public class AttackSpeed extends Attack{
     }
 
     @Override
-    public void performAttack(Field target) {
-        target.getSegment().getPawn().setSpeed((byte) (target.getSegment().getPawn().getSpeed() - magnitude));
+    public void performAttack(MainActivity m, Field target) {
+        Pawn targetPawn = target.getSegment().getPawn();
+        targetPawn.setSpeed((byte) (targetPawn.getSpeed() + magnitude));
+        targetPawn.setLeftSteps((byte) (targetPawn.getLeftSteps() + magnitude));
     }
 }
