@@ -24,6 +24,7 @@ public class SavegameUtil {
         sg = getSavegame(ctx, false);
         if (sg == null) {
             //Savegame is corrupted
+
             sg = getSavegame(ctx, true);
         }
 
