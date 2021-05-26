@@ -31,7 +31,6 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
     public static int[][] selectedLevel = levelSingle.Error;
 
-
     private Board board = null;
 
 
